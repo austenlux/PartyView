@@ -9,8 +9,8 @@ import kotlin.math.sin
 
 interface PartyView {
 
-    var colors: IntArray?
-    var colorIndex: Float?
+    var colors: IntArray
+    var colorIndex: Float
     var colorStep: Float
     var radius: Int
     var radians: Double
@@ -90,21 +90,18 @@ interface PartyView {
     fun translate(view: View) {
         view.translationX = radius.times(cos(radians)).toFloat()
         view.translationY = radius.times(sin(radians)).toFloat()
-        radians = radianStep.let {
-            radians.minus(
-                if (reverse) {
-                    it
-                } else {
-                    -it
-                }
-            ).rem(Math.PI.times(2))
-        }
+        radians = radians.plus(
+            if (reverse) {
+                -radianStep
+            } else {
+                radianStep
+            }
+        ).rem(Math.PI.times(2))
     }
 
     fun strobe(canvas: Canvas?) {
-        colorIndex?.let { colors?.get(it.toInt()) }
-            ?.let { canvas?.drawColor(it, PorterDuff.Mode.SRC_IN) }
-        colorIndex = colors?.size?.let { colorStep.let { it1 -> colorIndex?.plus(it1)?.rem(it) } }
+        canvas?.drawColor(colors[colorIndex.toInt()], PorterDuff.Mode.SRC_IN)
+        colorIndex = colorIndex.plus(colorStep).rem(colors.size)
     }
 
     fun centerView(view: View) {

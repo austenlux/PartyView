@@ -9,8 +9,8 @@ import androidx.appcompat.widget.AppCompatTextView
 class PartyTextView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
     AppCompatTextView(context, attrs), PartyView {
 
-    override var colors: IntArray? = resources?.getIntArray(R.array.party)
-    override var colorIndex: Float? = 0f
+    override var colors: IntArray = resources.getIntArray(R.array.party)
+    override var colorIndex: Float = 0f
     override var colorStep: Float = 0.2f
     override var radius: Int = 30
     override var radians: Double = 0.toDouble()
@@ -32,7 +32,7 @@ class PartyTextView @JvmOverloads constructor(context: Context, attrs: Attribute
                 )]
             }
             if (a.hasValue(R.styleable.PartyTextView_partyTextView_colors)) {
-                colors = resources?.getIntArray(
+                colors = resources.getIntArray(
                     a.getResourceId(
                         R.styleable.PartyTextView_partyTextView_colors,
                         R.array.party
