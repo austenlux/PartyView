@@ -167,7 +167,7 @@ TAP_THRU|Tapping the PartyView once will make it change colors. Tapping it again
 Example:
 
 **XML:**
-```app:partyTextView_mode="on"```
+```app:partyImageView_mode="on"```
 
 **Kotlin:**
 ```findViewById<PartyImageView>(R.id.partyImage).mode = PartyView.PartyMode.ON```
