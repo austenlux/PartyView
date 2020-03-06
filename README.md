@@ -151,7 +151,7 @@ Example:
 
 ***
 #### Mode:
-Enum that controls what mode the PartyView will operate in. Can be assigned to a value from the PartyView.PartyMode enum.
+Enum that controls what mode the PartyView will operate in. Can be assigned to a value from the `PartyView.PartyMode` enum.
 
 | Mode | Effect |
 |:-:|:-|
