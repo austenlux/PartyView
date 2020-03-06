@@ -11,14 +11,14 @@ interface PartyView {
 
     var colors: IntArray?
     var colorIndex: Float?
-    var colorStep: Float?
-    var radius: Int?
-    var radians: Double?
-    var radianStep: Float?
-    var shouldSpin: Boolean?
-    var shouldStrobe: Boolean?
-    var mode: PartyMode?
-    var reverse: Boolean?
+    var colorStep: Float
+    var radius: Int
+    var radians: Double
+    var radianStep: Float
+    var shouldSpin: Boolean
+    var shouldStrobe: Boolean
+    var mode: PartyMode
+    var reverse: Boolean
 
     enum class PartyMode(value: Int) {
         OFF(0),
@@ -36,10 +36,10 @@ interface PartyView {
 
     fun onDraw(view: View, canvas: Canvas?) {
         refreshMode(view)
-        if (shouldSpin!!) {
+        if (shouldSpin) {
             translate(view)
         }
-        if (shouldStrobe!!) {
+        if (shouldStrobe) {
             strobe(canvas)
         }
         centerView(view)
@@ -88,27 +88,27 @@ interface PartyView {
     }
 
     fun translate(view: View) {
-        view.translationX = radius?.times(cos(radians!!))!!.toFloat()
-        view.translationY = radius?.times(sin(radians!!))!!.toFloat()
-        radians = radianStep?.let {
-            radians?.plus(
-                if (reverse!!) {
-                    it.times(-1)
-                } else {
+        view.translationX = radius.times(cos(radians)).toFloat()
+        view.translationY = radius.times(sin(radians)).toFloat()
+        radians = radianStep.let {
+            radians.minus(
+                if (reverse) {
                     it
+                } else {
+                    -it
                 }
-            )?.rem(Math.PI.times(2))
+            ).rem(Math.PI.times(2))
         }
     }
 
     fun strobe(canvas: Canvas?) {
         colorIndex?.let { colors?.get(it.toInt()) }
             ?.let { canvas?.drawColor(it, PorterDuff.Mode.SRC_IN) }
-        colorIndex = colors?.size?.let { colorStep?.let { it1 -> colorIndex?.plus(it1)?.rem(it) } }
+        colorIndex = colors?.size?.let { colorStep.let { it1 -> colorIndex?.plus(it1)?.rem(it) } }
     }
 
     fun centerView(view: View) {
-        if (!shouldSpin!! && !shouldStrobe!! && view.translationX != 0f && view.translationY != 0f) {
+        if (!shouldSpin && !shouldStrobe && view.translationX != 0f && view.translationY != 0f) {
             view.translationX = 0f
             view.translationY = 0f
         }
@@ -117,19 +117,19 @@ interface PartyView {
     fun onClick() {
         when (mode) {
             PartyMode.TAP_SPIN -> {
-                shouldSpin = !shouldSpin!!
+                shouldSpin = !shouldSpin
             }
             PartyMode.TAP_STROBE -> {
-                shouldStrobe = !shouldStrobe!!
+                shouldStrobe = !shouldStrobe
             }
             PartyMode.TAP_ON_OFF -> {
-                shouldSpin = !shouldSpin!!
-                shouldStrobe = !shouldStrobe!!
+                shouldSpin = !shouldSpin
+                shouldStrobe = !shouldStrobe
             }
             PartyMode.TAP_THRU -> {
-                if (!shouldStrobe!!) {
+                if (!shouldStrobe) {
                     shouldStrobe = true
-                } else if (shouldStrobe!! && !shouldSpin!!) {
+                } else if (shouldStrobe && !shouldSpin) {
                     shouldSpin = true
                 } else {
                     shouldStrobe = false

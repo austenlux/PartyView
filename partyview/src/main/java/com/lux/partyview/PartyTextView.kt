@@ -11,14 +11,14 @@ class PartyTextView @JvmOverloads constructor(context: Context, attrs: Attribute
 
     override var colors: IntArray? = resources?.getIntArray(R.array.party)
     override var colorIndex: Float? = 0f
-    override var colorStep: Float? = 0.2f
-    override var radius: Int? = 30
-    override var radians: Double? = 0.toDouble()
-    override var radianStep: Float? = 0.2f
-    override var shouldSpin: Boolean? = false
-    override var shouldStrobe: Boolean? = false
-    override var reverse: Boolean? = false
-    override var mode: PartyView.PartyMode? = PartyView.PartyMode.ON
+    override var colorStep: Float = 0.2f
+    override var radius: Int = 30
+    override var radians: Double = 0.toDouble()
+    override var radianStep: Float = 0.2f
+    override var shouldSpin: Boolean = false
+    override var shouldStrobe: Boolean = false
+    override var reverse: Boolean = false
+    override var mode: PartyView.PartyMode = PartyView.PartyMode.ON
 
     init {
         setLayerType(View.LAYER_TYPE_HARDWARE, null)
