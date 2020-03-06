@@ -6,7 +6,7 @@ Turn any Android View into a Party!
 
 ## Usage:
 
-### PartyImageView
+### PartyImageView:
 
 ![PartyImageView](partyview/src/main/assets/demo/PartyImageView.gif)
 
@@ -25,8 +25,7 @@ Turn any Android View into a Party!
 ```
 
 ***
-
-### PartyTextView
+### PartyTextView:
 
 ![PartyImageView](partyview/src/main/assets/demo/PartyTextView.gif)
 
@@ -48,7 +47,7 @@ Turn any Android View into a Party!
 
 ## Custom Attributes:
 
-#### Colors:
+### Colors:
 IntArray of colors that the PartyView will rotate through.
 
 Example:
@@ -92,7 +91,7 @@ Then use the array of colors in the PartyView like this:
 ```findViewById<PartyImageView>(R.id.partyImage).colors = resources.getIntArray(R.array.party)```
 
 ***
-#### Color Step:
+### Color Step:
 Float that controls how fast the PartyView will change colors. The higher the number the faster it changes colors. Default value = 0.2f
 
 Example:
@@ -105,7 +104,7 @@ Example:
 
 
 ***
-#### Radius:
+### Radius:
 Int (in pixels) that controls how large of a circle the PartyView will travel along. The higher the number the larger the circle. Default value = 30
 
 Example:
@@ -118,7 +117,7 @@ Example:
 
 
 ***
-#### Radian Step:
+### Radian Step:
 Float (in radians) that controls how fast the PartyView will travel around the circle. The higher the number the faster the PartyView will travel around the circle. Default value = 0.2f
 
 Example:
@@ -131,7 +130,7 @@ Example:
 
 
 ***
-#### Reverse:
+### Reverse:
 Boolean that controls if the PartyView travels in a clockwise or counter clockwise circle.
 
 |Value|Behavior|
@@ -150,7 +149,7 @@ Example:
 
 
 ***
-#### Mode:
+### Mode:
 Enum that controls what mode the PartyView will operate in. Can be assigned to a value from the `PartyView.PartyMode` enum.
 
 | Mode | Effect |
