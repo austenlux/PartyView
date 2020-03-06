@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="PartyImageView">
+        <attr name="partyImageView_colors" format="reference" />
+        <attr name="partyImageView_colorStep" format="float" />
+        <attr name="partyImageView_radius" format="integer" />
+        <attr name="partyImageView_radianStep" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="PartyTextView">
+        <attr name="partyTextView_colors" format="reference" />
+        <attr name="partyTextView_colorStep" format="float" />
+        <attr name="partyTextView_radius" format="integer" />
+        <attr name="partyTextView_radianStep" format="float" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_0">#ff8d8b</color>
+    <color name="color_1">#fed689</color>
+    <color name="color_2">#88ff89</color>
+    <color name="color_3">#87ffff</color>
+    <color name="color_4">#8bb5fe</color>
+    <color name="color_5">#d78cff</color>
+    <color name="color_6">#ff8cff</color>
+    <color name="color_7">#ff68f7</color>
+    <color name="color_8">#fe6cb7</color>
+    <color name="color_9">#ff6868</color>
+
+    <array name="party">
+        <item>@color/color_0</item>
+        <item>@color/color_1</item>
+        <item>@color/color_2</item>
+        <item>@color/color_3</item>
+        <item>@color/color_4</item>
+        <item>@color/color_5</item>
+        <item>@color/color_6</item>
+        <item>@color/color_7</item>
+        <item>@color/color_8</item>
+        <item>@color/color_9</item>
+    </array>
+</resources>
