@@ -52,7 +52,7 @@ Turn any Android View into a Party!
 IntArray of colors that the PartyView will rotate through.
 
 Example:
-First define the array of colors in colors.xml like this:
+First define the array of colors in `colors.xml` like this:
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
