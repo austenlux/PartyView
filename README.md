@@ -8,7 +8,7 @@ Turn any Android View into a Party!
 
 ### PartyImageView
 
-![PartyImageView](partyview/src/main/res/demo/PartyImageView.gif)
+![PartyImageView](partyview/src/main/assets/demo/PartyImageView.gif)
 
 ```
 <com.lux.partyview.PartyImageView
@@ -28,7 +28,7 @@ Turn any Android View into a Party!
 
 ### PartyTextView
 
-![PartyImageView](partyview/src/main/res/demo/PartyTextView.gif)
+![PartyImageView](partyview/src/main/assets/demo/PartyTextView.gif)
 
 ```
 <com.lux.partyview.PartyTextView
