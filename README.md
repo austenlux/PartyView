@@ -21,7 +21,7 @@ Turn any Android View into a Party!
     app:partyImageView_mode="on"
     app:partyImageView_radianStep="0.2"
     app:partyImageView_radius="30"
-    app:partyImageView_reverse="true" />
+    app:partyImageView_reverse="false" />
 ```
 
 ***
