@@ -17,15 +17,27 @@ class PartyTextView @JvmOverloads constructor(context: Context, attrs: Attribute
     override var radianStep: Float? = 0.2f
     override var shouldSpin: Boolean? = false
     override var shouldStrobe: Boolean? = false
+    override var reverse: Boolean? = false
+    override var mode: PartyView.PartyMode? = PartyView.PartyMode.ON
 
     init {
         setLayerType(View.LAYER_TYPE_HARDWARE, null)
-        setOnClickListener { onClick() }
 
         if (null != attrs) {
             val a = context.obtainStyledAttributes(attrs, R.styleable.PartyTextView)
+            if (a.hasValue(R.styleable.PartyTextView_partyTextView_mode)) {
+                mode = PartyView.PartyMode.values()[a.getInt(
+                    R.styleable.PartyTextView_partyTextView_mode,
+                    1
+                )]
+            }
             if (a.hasValue(R.styleable.PartyTextView_partyTextView_colors)) {
-                colors = resources?.getIntArray(a.getResourceId(R.styleable.PartyTextView_partyTextView_colors, R.array.party))
+                colors = resources?.getIntArray(
+                    a.getResourceId(
+                        R.styleable.PartyTextView_partyTextView_colors,
+                        R.array.party
+                    )
+                )
             }
             if (a.hasValue(R.styleable.PartyTextView_partyTextView_colorStep)) {
                 colorStep = a.getFloat(R.styleable.PartyTextView_partyTextView_colorStep, 0.2f)
@@ -35,6 +47,9 @@ class PartyTextView @JvmOverloads constructor(context: Context, attrs: Attribute
             }
             if (a.hasValue(R.styleable.PartyTextView_partyTextView_radianStep)) {
                 radianStep = a.getFloat(R.styleable.PartyTextView_partyTextView_radianStep, 0.2f)
+            }
+            if (a.hasValue(R.styleable.PartyTextView_partyTextView_reverse)) {
+                reverse = a.getBoolean(R.styleable.PartyTextView_partyTextView_reverse, false)
             }
             a.recycle()
         }

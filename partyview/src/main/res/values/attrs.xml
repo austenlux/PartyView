@@ -1,17 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="PartyImageView">
+    <declare-styleable name="PartyImageView" parent="PartyView">
+        <attr name="partyImageView_mode" format="enum">
+            <enum name="off" value="0" />
+            <enum name="on" value="1" />
+            <enum name="spin" value="2" />
+            <enum name="strobe" value="3" />
+            <enum name="tap_spin" value="4" />
+            <enum name="tap_strobe" value="5" />
+            <enum name="tap_on_off" value="6" />
+            <enum name="tap_thru" value="7" />
+        </attr>
         <attr name="partyImageView_colors" format="reference" />
         <attr name="partyImageView_colorStep" format="float" />
         <attr name="partyImageView_radius" format="integer" />
         <attr name="partyImageView_radianStep" format="float" />
+        <attr name="partyImageView_reverse" format="boolean" />
     </declare-styleable>
 
-    <declare-styleable name="PartyTextView">
+    <declare-styleable name="PartyTextView" parent="PartyView">
+        <attr name="partyTextView_mode" format="enum">
+            <enum name="off" value="0" />
+            <enum name="on" value="1" />
+            <enum name="spin" value="2" />
+            <enum name="strobe" value="3" />
+            <enum name="tap_spin" value="4" />
+            <enum name="tap_strobe" value="5" />
+            <enum name="tap_on_off" value="6" />
+            <enum name="tap_thru" value="7" />
+        </attr>
         <attr name="partyTextView_colors" format="reference" />
         <attr name="partyTextView_colorStep" format="float" />
         <attr name="partyTextView_radius" format="integer" />
         <attr name="partyTextView_radianStep" format="float" />
+        <attr name="partyTextView_reverse" format="boolean" />
     </declare-styleable>
 </resources>
