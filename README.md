@@ -88,7 +88,7 @@ Then use the array of colors in the PartyView like this:
 **XML:** 
 ```app:partyImageView_colors="@array/party"```
 
-*Kotlin:**
+**Kotlin:**
 ```findViewById<PartyImageView>(R.id.partyImage).colors = resources.getIntArray(R.array.party)```
 
 ***
