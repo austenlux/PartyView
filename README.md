@@ -1,8 +1,7 @@
 # PartyView
 Turn any Android View into a Party!
 
-
-**PartyImageView** and **PartyTextView** are provided, but any Android View can easily be partyfied by implementing the **PartyView** interface.
+`PartyImageView` and `PartyTextView` are provided, but any Android View can easily be partyfied by implementing the `PartyView` interface.
 
 ## Usage:
 
