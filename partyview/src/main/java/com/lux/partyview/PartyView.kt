@@ -28,22 +28,17 @@ interface PartyView {
         TAP_SPIN(4),
         TAP_STROBE(5),
         TAP_ON_OFF(6),
-        TAP_THRU(7);
+        TAP_THRU(7)
     }
 
     val clickListener: OnClickListener
-        get() = OnClickListener { onClick() }
+        get() = OnClickListener { v -> onClick(v) }
 
-    fun onDraw(view: View, canvas: Canvas?) {
+    fun party(view: View, canvas: Canvas?) {
         refreshMode(view)
-        if (shouldSpin) {
-            translate(view)
-        }
-        if (shouldStrobe) {
-            strobe(canvas)
-        }
-        centerView(view)
-        view.invalidate()
+        spin(view)
+        strobe(canvas)
+        invalidate(view)
     }
 
     fun refreshMode(view: View) {
@@ -87,9 +82,19 @@ interface PartyView {
         }
     }
 
-    fun translate(view: View) {
+    fun spin(view: View) {
+        if (!shouldSpin && view.translationX != 0f && view.translationY != 0f) {
+            view.translationX = 0f
+            view.translationY = 0f
+        }
+
+        if (!shouldSpin) {
+            return
+        }
+
         view.translationX = radius.times(cos(radians)).toFloat()
         view.translationY = radius.times(sin(radians)).toFloat()
+
         radians = radians.plus(
             if (reverse) {
                 -radianStep
@@ -100,18 +105,21 @@ interface PartyView {
     }
 
     fun strobe(canvas: Canvas?) {
+        if (!shouldStrobe) {
+            return
+        }
+
         canvas?.drawColor(colors[colorIndex.toInt()], PorterDuff.Mode.SRC_IN)
         colorIndex = colorIndex.plus(colorStep).rem(colors.size)
     }
 
-    fun centerView(view: View) {
-        if (!shouldSpin && !shouldStrobe && view.translationX != 0f && view.translationY != 0f) {
-            view.translationX = 0f
-            view.translationY = 0f
+    fun invalidate(view: View) {
+        if (shouldSpin || shouldStrobe) {
+            view.invalidate()
         }
     }
 
-    fun onClick() {
+    fun onClick(view: View) {
         when (mode) {
             PartyMode.TAP_SPIN -> {
                 shouldSpin = !shouldSpin
@@ -134,5 +142,6 @@ interface PartyView {
                 }
             }
         }
+        invalidate(view)
     }
 }

@@ -56,7 +56,7 @@ class PartyImageView @JvmOverloads constructor(context: Context, attrs: Attribut
     }
 
     override fun onDraw(canvas: Canvas?) {
-        super<AppCompatImageView>.onDraw(canvas)
-        onDraw(this, canvas)
+        super.onDraw(canvas)
+        party(this, canvas)
     }
 }

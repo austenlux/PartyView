@@ -17,7 +17,7 @@
         app:partyImageView_mode="tap_on_off"
         app:partyImageView_radianStep="0.2"
         app:partyImageView_radius="30"
-        app:partyImageView_reverse="true" />
+        app:partyImageView_reverse="false" />
 
     <com.lux.partyview.PartyTextView
         android:id="@+id/partyText"

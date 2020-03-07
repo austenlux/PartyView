@@ -56,7 +56,7 @@ class PartyTextView @JvmOverloads constructor(context: Context, attrs: Attribute
     }
 
     override fun onDraw(canvas: Canvas?) {
-        super<AppCompatTextView>.onDraw(canvas)
-        onDraw(this, canvas)
+        super.onDraw(canvas)
+        party(this, canvas)
     }
 }
