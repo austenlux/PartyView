@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <declare-styleable name="PartyImageView" parent="PartyView">
         <attr name="partyImageView_mode" format="enum">
             <enum name="off" value="0" />

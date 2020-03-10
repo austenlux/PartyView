@@ -19,6 +19,10 @@ interface PartyView {
     var shouldStrobe: Boolean
     var mode: PartyMode
     var reverse: Boolean
+    var partyClickListener: OnClickListener?
+
+    val tapModeListener: OnClickListener
+        get() = OnClickListener { v -> onClick(v) }
 
     enum class PartyMode(value: Int) {
         OFF(0),
@@ -30,9 +34,6 @@ interface PartyView {
         TAP_ON_OFF(6),
         TAP_THRU(7)
     }
-
-    val clickListener: OnClickListener
-        get() = OnClickListener { v -> onClick(v) }
 
     fun party(view: View, canvas: Canvas?) {
         refreshMode(view)
@@ -46,38 +47,18 @@ interface PartyView {
             PartyMode.ON -> {
                 shouldSpin = true
                 shouldStrobe = true
-                if (view.hasOnClickListeners()) {
-                    view.setOnClickListener(null)
-                }
             }
             PartyMode.OFF -> {
                 shouldSpin = false
                 shouldStrobe = false
-                if (view.hasOnClickListeners()) {
-                    view.setOnClickListener(null)
-                }
             }
             PartyMode.SPIN -> {
                 shouldSpin = true
                 shouldStrobe = false
-                if (view.hasOnClickListeners()) {
-                    view.setOnClickListener(null)
-                }
             }
             PartyMode.STROBE -> {
                 shouldSpin = false
                 shouldStrobe = true
-                if (view.hasOnClickListeners()) {
-                    view.setOnClickListener(null)
-                }
-            }
-            PartyMode.TAP_SPIN,
-            PartyMode.TAP_STROBE,
-            PartyMode.TAP_ON_OFF,
-            PartyMode.TAP_THRU -> {
-                if (!view.hasOnClickListeners()) {
-                    view.setOnClickListener(clickListener)
-                }
             }
         }
     }
@@ -120,6 +101,7 @@ interface PartyView {
     }
 
     fun onClick(view: View) {
+        partyClickListener?.onClick(view)
         when (mode) {
             PartyMode.TAP_SPIN -> {
                 shouldSpin = !shouldSpin

@@ -19,9 +19,11 @@ class PartyTextView @JvmOverloads constructor(context: Context, attrs: Attribute
     override var shouldStrobe: Boolean = false
     override var reverse: Boolean = false
     override var mode: PartyView.PartyMode = PartyView.PartyMode.ON
+    override var partyClickListener: OnClickListener? = null
 
     init {
         setLayerType(View.LAYER_TYPE_HARDWARE, null)
+        setOnClickListener(partyClickListener)
 
         if (null != attrs) {
             val a = context.obtainStyledAttributes(attrs, R.styleable.PartyTextView)
@@ -58,5 +60,10 @@ class PartyTextView @JvmOverloads constructor(context: Context, attrs: Attribute
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         party(this, canvas)
+    }
+
+    override fun setOnClickListener(l: OnClickListener?) {
+        partyClickListener = l
+        super.setOnClickListener(tapModeListener)
     }
 }
