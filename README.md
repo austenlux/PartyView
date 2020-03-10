@@ -89,9 +89,11 @@ Then use the array of colors in the PartyView like this:
 **Kotlin:**
 ```findViewById<PartyImageView>(R.id.partyImage).colors = resources.getIntArray(R.array.party)```
 
+**Default Value:** The color array in the example above is provided by PartyView and will be used by default if custom colors are not set by the user.
+
 ***
 ### Color Step:
-Float that controls how fast the PartyView will change colors. The higher the number the faster it changes colors. Default value = 0.2f
+Float that controls how fast the PartyView will change colors. The higher the number the faster it changes colors.
 
 Example:
 
@@ -101,10 +103,11 @@ Example:
 **Kotlin:**
 ```findViewById<PartyImageView>(R.id.partyImage).colorStep = 0.2f```
 
+**Default Value:** 0.2f
 
 ***
 ### Radius:
-Int (in pixels) that controls how large of a circle the PartyView will travel along. The higher the number the larger the circle. Default value = 30
+Int (in pixels) that controls how large of a circle the PartyView will travel along. The higher the number the larger the circle.
 
 Example:
 
@@ -114,10 +117,11 @@ Example:
 **Kotlin:**
 ```findViewById<PartyImageView>(R.id.partyImage).radius = 30```
 
+**Default Value:** 30
 
 ***
 ### Radian Step:
-Float (in radians) that controls how fast the PartyView will travel around the circle. The higher the number the faster the PartyView will travel around the circle. Default value = 0.2f
+Float (in radians) that controls how fast the PartyView will travel around the circle. The higher the number the faster the PartyView will travel around the circle.
 
 Example:
 
@@ -127,6 +131,7 @@ Example:
 **Kotlin:**
 ```findViewById<PartyImageView>(R.id.partyImage).radianStep = 0.2f```
 
+**Default Value:** 0.2f
 
 ***
 ### Reverse:
@@ -134,7 +139,7 @@ Boolean that controls if the PartyView travels in a clockwise or counter clockwi
 
 |Value|Behavior|
 |:-:|:-|
-FALSE|Clockwise. This is the Default Value
+FALSE|Clockwise. **Default Value**
 TRUE|Counter Clockwise
 
 Example:
@@ -153,7 +158,7 @@ Enum that controls what mode the PartyView will operate in. Can be assigned to a
 
 | Mode | Effect |
 |:-:|:-|
-ON|The PartyView is partying. It will move in a circle and change colors. This is the Default Value.
+ON|The PartyView is partying. It will move in a circle and change colors. **Default Value**
 OFF|The PartyView is not partying. It will not move or change colors.
 SPIN|The PartyView will only move in a circle. It will not change colors.
 STROBE|The PartyView will only change colors. It will not move in a circle.
